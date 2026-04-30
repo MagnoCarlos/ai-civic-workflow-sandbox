@@ -36,3 +36,19 @@ Incoming request
   "region": "Angola",
   "urgency": "medium"
 }
+
+## Example output
+
+```json
+{
+  "category": "policy_research_request",
+  "region": "Angola",
+  "urgency": "medium",
+  "suggested_next_action": "Retrieve relevant policy documents, summarise key obligations, and prepare a human-reviewed briefing note.",
+  "human_review_required": true,
+  "risk_notes": [
+    "Do not provide legal advice without expert review.",
+    "Verify sources before publication.",
+    "Flag uncertainty clearly."
+  ]
+}
