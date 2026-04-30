@@ -18,17 +18,17 @@ This project demonstrates how I think about practical AI engineering:
 
 ## Workflow
 
-Incoming request
-→ Classification
-→ Field extraction
-→ Context retrieval
-→ Draft response/action
-→ Human review
+Incoming request  
+→ Classification  
+→ Field extraction  
+→ Context retrieval  
+→ Draft response/action  
+→ Human review  
 → Logged decision
 
 ## Example input
 
-```json
+
 {
   "source": "email",
   "message": "We need help understanding whether a new policy affects small business reporting requirements in Angola.",
@@ -39,7 +39,6 @@ Incoming request
 
 ## Example output
 
-```json
 {
   "category": "policy_research_request",
   "region": "Angola",
@@ -52,3 +51,13 @@ Incoming request
     "Flag uncertainty clearly."
   ]
 }
+
+## Responsible AI boundaries
+
+This prototype is designed around human review. It does not automatically publish, send, delete, approve, or make final decisions.
+
+The aim is to support civic, research, media, and nonprofit teams by reducing manual triage work while keeping accountability with humans.
+
+## Why I built this
+
+I am interested in building practical AI systems that are useful in real operational environments, especially for African and public-interest contexts. My background combines product engineering, software prototyping, testing, technical communication, and Portuguese/English fluency.
