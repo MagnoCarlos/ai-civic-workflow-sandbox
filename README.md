@@ -72,6 +72,7 @@ The script prints a structured JSON workflow output.
 ```json
 {
   "workflow_name": "ai_civic_workflow_sandbox",
+  "timestamp_utc": "example-runtime-timestamp",
   "input_summary": {
     "source": "email",
     "language": "English",
@@ -86,7 +87,7 @@ The script prints a structured JSON workflow output.
     "language": "English",
     "region": "Angola",
     "urgency": "medium",
-    "message_length": 97
+    "message_length": 104
   },
   "retrieved_context": [
     {
