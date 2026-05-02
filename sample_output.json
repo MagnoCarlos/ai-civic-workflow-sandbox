@@ -1,0 +1,38 @@
+{
+  "workflow_name": "ai_civic_workflow_sandbox",
+  "input_summary": {
+    "source": "email",
+    "language": "English",
+    "region": "Angola",
+    "urgency": "medium"
+  },
+  "classification": {
+    "category": "policy_research_request"
+  },
+  "extracted_fields": {
+    "source": "email",
+    "language": "English",
+    "region": "Angola",
+    "urgency": "medium",
+    "message_length": 97
+  },
+  "retrieved_context": [
+    {
+      "title": "Policy research workflow note",
+      "summary": "Check official sources, identify obligations, and separate verified facts from interpretation."
+    },
+    {
+      "title": "Responsible AI review rule",
+      "summary": "Do not provide legal advice. Prepare a briefing note for qualified human review."
+    }
+  ],
+  "risk_assessment": {
+    "risk_level": "medium",
+    "risk_flags": [
+      "Policy/legal interpretation requires qualified human review."
+    ],
+    "human_review_required": true
+  },
+  "suggested_next_action": "Retrieve relevant official policy sources for Angola, summarise possible obligations, flag uncertainty, and prepare a briefing note for human review.",
+  "decision_boundary": "This demo suggests a next action only. A human reviewer must approve, edit, or reject the output before operational use."
+}
