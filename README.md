@@ -38,6 +38,7 @@ The script prints a structured JSON workflow output.
 | File | Purpose |
 |---|---|
 | `demo.py` | Deterministic workflow demo |
+| `requirements.txt` | Notes that no external Python packages are required |
 | `sample_input.json` | Example incoming request |
 | `sample_output.json` | Example structured output |
 | `architecture.md` | System design and component notes |
