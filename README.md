@@ -1,34 +1,63 @@
 # AI Civic Workflow Sandbox
 
-A sanitised AI workflow automation prototype for turning unstructured requests into structured, reviewable actions.
+A sanitised AI workflow automation prototype for turning unstructured civic or operational requests into structured, reviewable actions.
 
 This public demo uses synthetic data only. It does not include employer, client, private, or confidential information.
 
 ## What it demonstrates
 
-This project demonstrates how I think about practical AI engineering:
+This project demonstrates practical AI workflow engineering:
 
 - classifying incoming requests
 - extracting structured fields from messy text
-- retrieving relevant context
-- drafting a suggested action or response
+- retrieving relevant mock context
+- assessing risk and uncertainty
+- drafting a suggested next action
 - keeping a human-in-the-loop review step
-- logging decisions for auditability
+- producing structured JSON output
 - defining evaluation criteria before deployment
+
+## Quick start
+
+Run the demo with the sample input:
+
+```bash
+python demo.py sample_input.json
+```
+
+Or run it without an input file to use the built-in synthetic example:
+
+```bash
+python demo.py
+```
+
+The script prints a structured JSON workflow output.
+
+## Project files
+
+| File | Purpose |
+|---|---|
+| `demo.py` | Deterministic workflow demo |
+| `sample_input.json` | Example incoming request |
+| `sample_output.json` | Example structured output |
+| `architecture.md` | System design and component notes |
+| `evals.md` | Evaluation plan and test cases |
+| `responsible-ai.md` | Responsible AI boundaries and failure cases |
 
 ## Workflow
 
-Incoming request  
-→ Classification  
-→ Field extraction  
-→ Context retrieval  
-→ Draft response/action  
-→ Human review  
-→ Logged decision
+1. Incoming request
+2. Classification
+3. Field extraction
+4. Mock context retrieval
+5. Risk assessment
+6. Suggested next action
+7. Human review boundary
+8. Structured JSON output
 
 ## Example input
 
-
+```json
 {
   "source": "email",
   "message": "We need help understanding whether a new policy affects small business reporting requirements in Angola.",
@@ -36,28 +65,81 @@ Incoming request
   "region": "Angola",
   "urgency": "medium"
 }
+```
 
 ## Example output
 
+```json
 {
-  "category": "policy_research_request",
-  "region": "Angola",
-  "urgency": "medium",
-  "suggested_next_action": "Retrieve relevant policy documents, summarise key obligations, and prepare a human-reviewed briefing note.",
-  "human_review_required": true,
-  "risk_notes": [
-    "Do not provide legal advice without expert review.",
-    "Verify sources before publication.",
-    "Flag uncertainty clearly."
-  ]
+  "workflow_name": "ai_civic_workflow_sandbox",
+  "input_summary": {
+    "source": "email",
+    "language": "English",
+    "region": "Angola",
+    "urgency": "medium"
+  },
+  "classification": {
+    "category": "policy_research_request"
+  },
+  "extracted_fields": {
+    "source": "email",
+    "language": "English",
+    "region": "Angola",
+    "urgency": "medium",
+    "message_length": 97
+  },
+  "retrieved_context": [
+    {
+      "title": "Policy research workflow note",
+      "summary": "Check official sources, identify obligations, and separate verified facts from interpretation."
+    },
+    {
+      "title": "Responsible AI review rule",
+      "summary": "Do not provide legal advice. Prepare a briefing note for qualified human review."
+    }
+  ],
+  "risk_assessment": {
+    "risk_level": "medium",
+    "risk_flags": [
+      "Policy/legal interpretation requires qualified human review."
+    ],
+    "human_review_required": true
+  },
+  "suggested_next_action": "Retrieve relevant official policy sources for Angola, summarise possible obligations, flag uncertainty, and prepare a briefing note for human review.",
+  "decision_boundary": "This demo suggests a next action only. A human reviewer must approve, edit, or reject the output before operational use."
 }
+```
 
 ## Responsible AI boundaries
 
-This prototype is designed around human review. It does not automatically publish, send, delete, approve, or make final decisions.
+This prototype is designed around human review.
 
-The aim is to support civic, research, media, and nonprofit teams by reducing manual triage work while keeping accountability with humans.
+It does not automatically:
+
+- publish content
+- send messages
+- delete records
+- approve decisions
+- provide legal advice
+- make final operational decisions
+
+The aim is to support civic, research, media, nonprofit, and operational teams by reducing manual triage work while keeping accountability with humans.
+
+## Current limitations
+
+This prototype does not:
+
+- call an LLM
+- call external APIs
+- verify live policy sources
+- store user data
+- process private or confidential information
+- make final decisions
+
+The current version is intentionally deterministic so the workflow can be inspected, tested, and improved before adding model-based reasoning.
 
 ## Why I built this
 
-I am interested in building practical AI systems that are useful in real operational environments, especially for African and public-interest contexts. My background combines product engineering, software prototyping, testing, technical communication, and Portuguese/English fluency.
+I am interested in building practical AI systems that are useful in real operational environments, especially for African and public-interest contexts.
+
+My background combines product engineering, software prototyping, embedded systems, validation, testing, technical communication, and Portuguese/English fluency.
